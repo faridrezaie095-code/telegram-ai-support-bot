@@ -1,7 +1,7 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import type { Env, Bot } from './types';
-import { encrypt, decrypt, bytesToBase64 } from './crypto';
+import { encrypt, decrypt, bytesToHex } from './crypto';
 import {
   createBot,
   deleteBot,
