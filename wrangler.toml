@@ -11,7 +11,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "telegram_ai_bot_db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "d3ca6d2e-ff6c-4ccd-9025-eea7fc587640"
 migrations_dir = "migrations"
 
 # ---------------------------------------------------------------------------
@@ -20,7 +20,7 @@ migrations_dir = "migrations"
 # ---------------------------------------------------------------------------
 [[kv_namespaces]]
 binding = "BOT_KV"
-id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+id = "578952ab7ac9422fb265fbd8b388b7a9"
 
 # ---------------------------------------------------------------------------
 # Assets — سرو کردن پنل React ساخته‌شده (panel/dist) مستقیم از همین Worker
