@@ -12,7 +12,7 @@ const PROVIDER_LABELS: Record<string, string> = {
 
 const DEFAULT_MODELS: Record<string, string[]> = {
   openai: ['gpt-4o-mini', 'gpt-4o'],
-  gemini: ['gemini-2.5-flash-lite', 'gemini-2.5-flash', 'gemini-2.5-pro'],
+  gemini: ['gemini-3.1-flash-lite', 'gemini-3.5-flash', 'gemini-2.5-pro'],
   anthropic: ['claude-sonnet-4-6', 'claude-haiku-4-5-20251001'],
 };
 
