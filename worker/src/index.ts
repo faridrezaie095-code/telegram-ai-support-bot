@@ -153,7 +153,7 @@ app.post('/api/bots', async (c) => {
     return c.json({ error: 'توکن بات تلگرام نامعتبر است' }, 400);
   }
 
-  const webhookSecret = bytesToBase64(crypto.getRandomValues(new Uint8Array(24)));
+  const webhookSecret = bytesToHex(crypto.getRandomValues(new Uint8Array(24)));
 
   const [tokenEnc, apiKeyEnc] = await Promise.all([
     encrypt(body.telegram_token, c.env.ENCRYPTION_KEY),
