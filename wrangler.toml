@@ -1,4 +1,4 @@
-name = "telegram-ai-support-bot"
+name = "telegram-ai-support-bo"
 main = "worker/src/index.ts"
 compatibility_date = "2025-06-01"
 compatibility_flags = ["nodejs_compat"]
