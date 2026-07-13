@@ -1,0 +1,38 @@
+name = "telegram-ai-support-bot"
+main = "worker/src/index.ts"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ---------------------------------------------------------------------------
+# D1 — پایگاه‌داده اصلی (اطلاعات بات‌ها، محصولات، مکالمات)
+# بعد از اجرای `wrangler d1 create telegram_ai_bot_db`، مقدار database_id
+# را از خروجی همان دستور اینجا جایگزین کنید.
+# ---------------------------------------------------------------------------
+[[d1_databases]]
+binding = "DB"
+database_name = "telegram_ai_bot_db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"
+
+# ---------------------------------------------------------------------------
+# KV — کش کوتاه‌مدت مکالمه و محدودیت نرخ درخواست (rate limiting)
+# بعد از اجرای `wrangler kv namespace create BOT_KV`، id را جایگزین کنید.
+# ---------------------------------------------------------------------------
+[[kv_namespaces]]
+binding = "BOT_KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+
+# ---------------------------------------------------------------------------
+# Assets — سرو کردن پنل React ساخته‌شده (panel/dist) مستقیم از همین Worker
+# ---------------------------------------------------------------------------
+[assets]
+directory = "./panel/dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+# ---------------------------------------------------------------------------
+# متغیرهای غیرحساس. مقادیر حساس (کلید رمزنگاری، رمز عبور ادمین پنل) را
+# با دستور `wrangler secret put NAME` تنظیم کنید، نه اینجا.
+# ---------------------------------------------------------------------------
+[vars]
+APP_ENV = "production"

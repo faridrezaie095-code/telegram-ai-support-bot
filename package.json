@@ -1,0 +1,23 @@
+{
+  "name": "telegram-ai-support-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "پلتفرم متن‌باز ربات پشتیبانی هوش مصنوعی برای تلگرام - روی Cloudflare Workers",
+  "scripts": {
+    "dev:worker": "wrangler dev",
+    "dev:panel": "cd panel && npm run dev",
+    "build:panel": "cd panel && npm install && npm run build",
+    "build": "npm run build:panel",
+    "deploy": "npm run build:panel && wrangler deploy",
+    "db:migrate:local": "wrangler d1 migrations apply telegram_ai_bot_db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply telegram_ai_bot_db --remote"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260713.1",
+    "typescript": "^5.5.4",
+    "wrangler": "^4.20.0"
+  },
+  "dependencies": {
+    "hono": "^4.6.9"
+  }
+}

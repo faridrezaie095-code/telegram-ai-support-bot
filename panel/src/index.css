@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: #f6f3ec;
+  background-image:
+    linear-gradient(#00000006 1px, transparent 1px),
+    linear-gradient(90deg, #00000006 1px, transparent 1px);
+  background-size: 28px 28px;
+  color: #20261f;
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+::selection {
+  background-color: #a8352e33;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #a8352e;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
