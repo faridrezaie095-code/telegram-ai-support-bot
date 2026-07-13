@@ -28,12 +28,15 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
     credentials: 'include',
   });
 
-  if (res.status === 401) {
+  const data = await res.json().catch(() => ({}));
+
+  // فقط برای مسیرهای غیر از لاگین، ۴۰۱ یعنی نشست منقضی شده و باید به صفحه‌ی ورود برگردیم.
+  // برای خود درخواست لاگین، ۴۰۱ یعنی رمز اشتباه است و باید پیام خطا نمایش داده شود.
+  if (res.status === 401 && !path.startsWith('/auth/login')) {
     window.location.href = '/login';
     throw new Error('ورود لازم است');
   }
 
-  const data = await res.json().catch(() => ({}));
   if (!res.ok) throw new Error((data as any).error || 'خطای ناشناخته');
   return data as T;
 }
